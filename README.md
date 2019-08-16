@@ -5,7 +5,8 @@ Using JavaScript, Materialize, and fakeJSON to create a shopping cart
 ---
 ## TODO (&#10003;)
 ### 08/16/19
-- git init
+- git init &#10003;
+- npm init
 - set up fakeJSON account/get key
 - create folders/files
 - get Materialize
