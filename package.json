@@ -1,0 +1,19 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "description": "Using JavaScript, Materialize, and fakeJSON to create a shopping cart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshbivens/shopping-cart.git"
+  },
+  "author": "J. Bivens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshbivens/shopping-cart/issues"
+  },
+  "homepage": "https://github.com/joshbivens/shopping-cart#readme"
+}
