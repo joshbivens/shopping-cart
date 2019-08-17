@@ -8,7 +8,39 @@
   <title>Shopping Cart</title>
 </head>
 <body>
-  <script src="/js/fake.js"></script>
+  <div id="app">
+    <nav>
+      <div class="nav-wrapper amber lighten-2">
+        <div class="container">
+          <a href="#" class="brand-logo">Shop</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Office</a></li>
+            <li><a href="#">Outdoor</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Office</a></li>
+      <li><a href="#">Outdoor</a></li>
+    </ul>
+
+    <div class="container">
+
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+    $(document).ready(() => {
+      $('.sidenav').sidenav();
+    });
+  </script>
 </body>
 </html>
