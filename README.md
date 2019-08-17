@@ -10,7 +10,8 @@ Using JavaScript, Materialize, and fakeJSON to create a shopping cart
 - set up fakeJSON account/get key &#10003;
 - create folders/files &#10003;
 - get Materialize &#10003;
-- create secret keys private repo
+- create secret keys ~~private repo~~ with `git_secret`
+- set up index.html
 ---
 ## Notes
 - I'll probably need Axios
