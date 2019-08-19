@@ -18,6 +18,3 @@ Using JavaScript, Materialize, and fakeJSON to create a shopping cart
 - create new Firestore
 - save products to Firestore
 - work on retrieving products from Firestore and showing them on the page
----
-## Notes
-- I'll probably need Axios
