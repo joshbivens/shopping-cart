@@ -10,6 +10,14 @@
     .sidenav {
       padding-top: 30px;
     }
+
+    #cart-modal h4 {
+      padding-bottom: 10px;
+    }
+
+    .checkout {
+      margin: 10px 0 20px 0;
+    }
   </style>
 
   <title>Shopping Cart</title>
@@ -18,46 +26,38 @@
 
   <div id="app">
     <nav>
-      <div class="nav-wrapper amber lighten-2">
+      <div class="nav-wrapper light-blue">
         <div class="container">
           <a href="#" class="right modal-trigger" data-target="cart-modal">
             <i class="material-icons">add_shopping_cart</i>
           </a>
           <a href="#" class="brand-logo">Shop</a>
-          <a href="#" class="sidenav-trigger" data-target="mobile-links">
-            <i class="material-icons">menu</i>
-          </a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Office</a></li>
-            <li><a href="#">Outdoor</a></li>
-          </ul>
         </div>
       </div>
     </nav>
 
     <div id="cart-modal" class="modal">
       <div class="modal-content">
-        <h4>In your cart</h4>
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="https://picsum.photos/200" alt="">
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <h6>Commodo Nullam</h6>
-              <p>$13.99</p>
+        <h4>In your cart <span class="right">Total: $0.00</span></h4>
+        <div class="cart-contents">
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="https://picsum.photos/110" alt="">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h6><b>Commodo Nullam</b></h6>
+                <p>$13.99</p>
+              </div>
             </div>
           </div>
         </div>
+        <a href="#" class="checkout btn right light-blue">
+          Checkout
+          <i class="material-icons right">arrow_forward</i>
+        </a>
       </div>
     </div>
-
-    <ul class="sidenav" id="mobile-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Office</a></li>
-      <li><a href="#">Outdoor</a></li>
-    </ul>
 
     <div class="container">
       <h3>Today's Deals</h3>
