@@ -14,7 +14,7 @@ Using JavaScript, Materialize, and fakeJSON to create a shopping cart
 - set up index.html &#10003;
 - ~~Add Axios~~
 
-###08/19/19
+### 08/19/19
 - create new Firestore
 - save products to Firestore
 - work on retrieving products from Firestore and showing them on the page
