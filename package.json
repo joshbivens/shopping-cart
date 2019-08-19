@@ -16,7 +16,5 @@
     "url": "https://github.com/joshbivens/shopping-cart/issues"
   },
   "homepage": "https://github.com/joshbivens/shopping-cart#readme",
-  "dependencies": {
-    "axios": "^0.19.0"
-  }
+  "dependencies": {}
 }
