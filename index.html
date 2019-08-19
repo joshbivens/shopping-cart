@@ -15,11 +15,12 @@
   <title>Shopping Cart</title>
 </head>
 <body>
+
   <div id="app">
     <nav>
       <div class="nav-wrapper amber lighten-2">
         <div class="container">
-          <a href="#" class="right">
+          <a href="#" class="right modal-trigger" data-target="cart-modal">
             <i class="material-icons">add_shopping_cart</i>
           </a>
           <a href="#" class="brand-logo">Shop</a>
@@ -35,6 +36,8 @@
       </div>
     </nav>
 
+    <div id="cart-modal" class="modal"></div>
+
     <ul class="sidenav" id="mobile-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">Office</a></li>
@@ -44,6 +47,7 @@
     <div class="container">
       <h3>Today's Deals</h3>
       <div class="row">
+
         <div class="col s12 m6">
           <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
@@ -61,6 +65,7 @@
             </div>
           </div>
         </div>
+
         <div class="col s12 m6">
           <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
@@ -78,6 +83,7 @@
             </div>
           </div>
         </div>
+
         <div class="col s12 m6">
           <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
@@ -101,9 +107,11 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script src="/js/shopping-cart.js"></script>
   <script>
     $(document).ready(() => {
       $('.sidenav').sidenav();
+      $('.modal').modal();
     });
   </script>
 </body>
