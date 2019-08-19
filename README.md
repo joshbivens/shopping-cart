@@ -1,6 +1,6 @@
 # Shopping Cart
 
-Using JavaScript, Materialize, and fakeJSON to create a shopping cart
+Using JavaScript, Materialize, and Firestore to create a shopping cart
 
 ---
 ## TODO (&#10003;)
