@@ -3,8 +3,8 @@
 Using JavaScript, Materialize, and Firestore to create a shopping cart
 
 ---
-## TODO (&#10003;)
-### 08/16/19
+## TODO
+### 08/16
 - git init &#10003;
 - npm init &#10003;
 - set up fakeJSON account/get key &#10003;
@@ -14,7 +14,7 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 - set up index.html &#10003;
 - ~~Add Axios~~
 
-### 08/19/19 > 08/20/19
+### 08/19 > 08/20
 - Find dummy product images (110px and 200px)
 - create new Firestore
 - save products to Firestore
