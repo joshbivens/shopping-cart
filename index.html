@@ -2,6 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,13 +135,14 @@
     };
 
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    db.settings({ timestampsInSnapshots: true });
   </script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="/js/shopping-cart.js"></script>
   <script>
     $(document).ready(() => {
-      $('.sidenav').sidenav();
       $('.modal').modal();
     });
   </script>
