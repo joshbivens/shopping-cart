@@ -28,4 +28,4 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 - retrieve products from Firestore and show them on the page &#10003;
 - Find dummy product images (110px and 200px) &#10003;
 - store images in S3 &#10003;
-- set product data in Firestore
+- set product data in Firestore &#10003;
