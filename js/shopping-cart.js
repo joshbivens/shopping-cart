@@ -9,6 +9,7 @@ db.collection("items").get()
         <div class="col s12 m6">
           <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
+              ${item.sale ? '<span class="new badge red" data-badge-caption="Sale!"></span>' : ''}
               <img class="activator" src="${item.img_url}">
             </div>
             <div class="card-content">
@@ -39,6 +40,6 @@ db.collection("items").get()
 const reducePrice = (sale, discount, price) => {
   const reducedPrice = Math.floor(price - (price * (discount / 100)));
   return sale ?
-    `<strike style="color: crimson">${"$" + price}</strike> ${"$" + reducedPrice}` :
+    `<strike>${"$" + price}</strike> <span style="color: crimson">${"$" + reducedPrice}</span>` :
     "$" + price;
 };
