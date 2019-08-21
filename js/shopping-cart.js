@@ -24,7 +24,7 @@ db.collection("items").get()
               <h5>$${item.price}.00</h5>
               <p>${item.description}</p>
               <p><i>Free shipping on orders over $50!</i></p>
-              <a href="#" class="btn orange">Add To Cart</a>
+              <a href="#" id="add-to-cart" class="btn orange">Add To Cart</a>
             </div>
           </div>
         </div>
