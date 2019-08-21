@@ -15,7 +15,6 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 - ~~Add Axios~~
 
 ### 08/19 > 08/20
-- Find dummy product images (110px and 200px)
 - create new Firestore &#10003;
 - save products to Firestore &#10003;
   - data structure
@@ -24,4 +23,7 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
     - price
     - sale?
     - discount percent
-- retrieve products from Firestore and show them on the page
+
+### 08/21
+- retrieve products from Firestore and show them on the page &#10003;
+- Find dummy product images (110px and 200px)
