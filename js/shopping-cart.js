@@ -1,30 +1,18 @@
-db.collection("items").get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      renderStorefront(doc.data(), doc.id);
-    });
-  });
+const reducePrice = (sale, discount, price) => {
+  const reducedPrice = Math.floor(price - (price * (discount / 100)));
+  return sale
+    ? `<strike>${`$${price}`}</strike> <span style="color: crimson">${`$${reducedPrice}`}</span>`
+    : `$${price}`;
+};
 
-  // Function on Add to cart button that will take in doc.id
-  // and create new card (in cart) with doc.data() retreived
-  // using that doc.id
-
-  // <div class="cart-contents">
-  //   <div class="card horizontal">
-  //     <div class="card-image">
-  //       <img src="https://picsum.photos/110" alt="">
-  //     </div>
-  //     <div class="card-stacked">
-  //       <div class="card-content">
-  //         <h6><b>Commodo Nullam</b></h6>
-  //         <p>$13.99</p>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
+const discountBadge = (sale, discount) => {
+  return sale
+    ? `<span class="new badge red" data-badge-caption="off!">${discount}%</span>`
+    : '';
+};
 
 const renderStorefront = (item, id) => {
-  const items = document.querySelector("#items");
+  const items = document.querySelector('#items');
   items.innerHTML += `
     <div class="col s12 m6">
       <div class="card medium">
@@ -56,19 +44,39 @@ const renderStorefront = (item, id) => {
       </div>
     </div>
 `;
-}
-
-const reducePrice = (sale, discount, price) => {
-  const reducedPrice = Math.floor(price - (price * (discount / 100)));
-  return sale ?
-    `<strike>${"$" + price}</strike> <span style="color: crimson">${"$" + reducedPrice}</span>` :
-    "$" + price;
 };
 
-const discountBadge = (sale, discount) => {
-  return sale ?
-  `<span class="new badge red" data-badge-caption="off!">${discount}%</span>` :
-  '';
+db.collection('items').get()
+  .then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      renderStorefront(doc.data(), doc.id);
+    });
+  });
+
+const renderCart = (e) => {
+  const cart = document.querySelector('#cart');
+  if (e.target.dataset.id) {
+    const itemRef = db.collection('items').doc(e.target.dataset.id);
+    itemRef.get().then((doc) => {
+      const item = doc.data();
+      cart.innerHTML += `
+        <div class="cart-contents">
+          <div class="card horizontal">
+            <div class="card-image">
+              ${discountBadge(item.sale, item.discount)}
+              <img src="${item.img_url}" alt="${item.name}">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <h6><b>${item.name}</b></h6>
+                <p>$${item.price}</p>
+              </div>
+            </div>
+          </div>
+        </div>      
+      `;
+    });
+  }
 };
 
-
+document.addEventListener('click', renderCart);
