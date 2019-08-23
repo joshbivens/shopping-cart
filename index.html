@@ -35,7 +35,7 @@
   <title>Shopping Cart</title>
 </head>
 <body>
-
+  <!-- Nav/Header -->
   <div id="app">
     <nav>
       <div class="nav-wrapper light-blue">
@@ -48,22 +48,13 @@
       </div>
     </nav>
 
+    <!-- Cart -->
     <div id="cart-modal" class="modal">
       <div class="modal-content">
-        <h4>In your cart <span class="right">Total: $0.00</span></h4>
-        <div class="cart-contents">
-          <div class="card horizontal">
-            <div class="card-image">
-              <img src="https://picsum.photos/110" alt="">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <h6><b>Commodo Nullam</b></h6>
-                <p>$13.99</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h4>In your cart</h4>
+        <div id="cart"></div>
+        <!-- Dynamic card area -->
+        <span>Total: $0.00</span>
         <a href="#" class="checkout btn right light-blue">
           Checkout
           <i class="material-icons right">arrow_forward</i>
@@ -71,28 +62,11 @@
       </div>
     </div>
 
+    <!-- Storefront -->
     <div class="container">
       <h3>Today's Deals</h3>
       <div id="items" class="row">
-
-        <!-- <div class="col s12 m6">
-          <div class="card medium">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="https://picsum.photos/200">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Commodo Nullam<i class="material-icons right">more_vert</i></span>
-              <p>Vestibulum id ligula porta felis euismod semper. Sed posuere consectetur est at lobortis.</p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Commodo Nullam<i class="material-icons right">close</i></span>
-              <h5>$13.99</h5>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-              <p><i>Maecenas faucibus mollis interdum.</i></p>
-            </div>
-          </div>
-        </div> -->
-
+        <!-- Dynamic card area -->
       </div>
     </div>
   </div>
@@ -111,8 +85,8 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
   </script>
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
   <script src="/js/shopping-cart.js"></script>
   <script>
     $(document).ready(() => {
