@@ -30,5 +30,8 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 - store images in S3 &#10003;
 - set product data in Firestore &#10003;
 
+### 08/22
+- Get small versions of imgs
+
 ## Future
 - "Added to cart" modal when button is clicked
