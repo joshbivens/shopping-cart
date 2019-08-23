@@ -23,6 +23,7 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
     - price
     - sale?
     - discount percent
+    - img (lg and sm) url
 
 ### 08/21
 - retrieve products from Firestore and show them on the page &#10003;
@@ -30,8 +31,11 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 - store images in S3 &#10003;
 - set product data in Firestore &#10003;
 
-### 08/22
-- Get small versions of imgs
+### 08/22 > 08/23
+- get small versions of imgs &#10003;
+- add ability to remove items from cart
+- when "add to cart" is clicked
+    - Close card overlay
+    - Add "added to cart" timed modal 
 
 ## Future
-- "Added to cart" modal when button is clicked
