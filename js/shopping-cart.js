@@ -14,9 +14,9 @@ const discountBadge = (sale, discount) => {
 const renderStorefront = (item, id) => {
   const items = document.querySelector('#items');
   items.innerHTML += `
-    <div class="col s12 m6">
+    <div class="col s12 m6" id="item-card" data-id="${id}">
       <div class="card medium">
-        <div class="card-image waves-effect waves-block waves-light">
+        <div class="card-image">
           ${discountBadge(item.sale, item.discount)}
           <img class="activator" src="${item.img_url}">
         </div>
@@ -55,8 +55,12 @@ db.collection('items').get()
 
 const renderCart = (e) => {
   const cart = document.querySelector('#cart');
-  if (e.target.dataset.id) {
-    const itemRef = db.collection('items').doc(e.target.dataset.id);
+  const itemID = e.target.dataset.id;
+  // Close card reveal
+  document.querySelector(`div[data-id="${itemID}"] .card-reveal .card-title`).click();
+  if (itemID) {
+    const itemRef = db.collection('items').doc(itemID);
+
     itemRef.get().then((doc) => {
       const item = doc.data();
       cart.innerHTML += `
@@ -64,18 +68,21 @@ const renderCart = (e) => {
           <div class="card horizontal">
             <div class="card-image">
               ${discountBadge(item.sale, item.discount)}
-              <img src="${item.img_url}" alt="${item.name}">
+              <img src="${item.img_url_sm}" alt="${item.name}">
             </div>
             <div class="card-stacked">
-              <div class="card-content">
+              <div class="card-content>
                 <h6><b>${item.name}</b></h6>
-                <p>$${item.price}</p>
+                <p>${reducePrice(item.sale, item.discount, item.price)}</p>
+                <!-- Delete icon -->
               </div>
             </div>
           </div>
         </div>      
       `;
     });
+
+    // Open timed "added to cart" modal
   }
 };
 
