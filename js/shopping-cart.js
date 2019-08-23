@@ -35,9 +35,9 @@ const renderStorefront = (item, id) => {
           <p>${item.description}</p>
           <p><i>Free shipping on orders over $50!</i></p>
           <a 
-            href="#"  
+            href="#added-modal"  
             id="add-to-cart"
-            class="waves-effect waves-light btn orange"
+            class="waves-effect waves-light btn orange modal-trigger"
             data-id="${id}"
           >Add To Cart</a>
         </div>    
@@ -81,8 +81,6 @@ const renderCart = (e) => {
         </div>      
       `;
     });
-
-    // Open timed "added to cart" modal
   }
 };
 

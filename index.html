@@ -62,6 +62,13 @@
       </div>
     </div>
 
+    <!-- Added to cart confirm. -->
+    <div id="added-modal" class="modal">
+      <div class="modal-content">
+        <p>Added to cart</p>
+      </div>
+    </div>
+
     <!-- Storefront -->
     <div class="container">
       <h3>Today's Deals</h3>
@@ -91,6 +98,13 @@
   <script>
     $(document).ready(() => {
       $('.modal').modal();
+      $('#added-modal').modal({
+        onOpenStart() {
+          setTimeout(() => {
+            $('#added-modal').modal('close');
+          }, 1500);
+        },
+      });
     });
   </script>
 </body>
