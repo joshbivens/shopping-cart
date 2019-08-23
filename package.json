@@ -16,5 +16,10 @@
     "url": "https://github.com/joshbivens/shopping-cart/issues"
   },
   "homepage": "https://github.com/joshbivens/shopping-cart#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
 }
