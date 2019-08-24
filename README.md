@@ -34,8 +34,9 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 ### 08/22 > 08/23
 - get small versions of imgs &#10003;
 - add ability to remove items from cart
-- when "add to cart" is clicked &#10003;
+- when "add to cart" is clicked
     - Close card overlay
-    - Add "added to cart" timed modal 
+    - Add "added to cart" timed modal &#10003;
 
 ## Future
+- get badge to display properly on cart image
