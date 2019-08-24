@@ -40,4 +40,5 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 
 ## Future
 - get badge to display properly on cart image
+    - this maybe: https://stackoverflow.com/questions/39726401/having-problems-implementing-horizontal-cards-from-materialize-css-library
 - rethink js organization
