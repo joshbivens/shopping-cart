@@ -1,19 +1,19 @@
-const reducePrice = (sale, discount, price) => {
-  const reducedPrice = Math.floor(price - (price * (discount / 100)));
-  return sale
-    ? `<strike>${`$${price}`}</strike> <span style="color: crimson">${`$${reducedPrice}`}</span>`
-    : `$${price}`;
-};
+$(document).ready(() => {
+  const reducePrice = (sale, discount, price) => {
+    const reducedPrice = Math.floor(price - (price * (discount / 100)));
+    return sale
+      ? `<strike>${`$${price}`}</strike> <span style="color: crimson">${`$${reducedPrice}`}</span>`
+      : `$${price}`;
+  };
 
-const discountBadge = (sale, discount) => {
-  return sale
-    ? `<span class="new badge red" data-badge-caption="off!">${discount}%</span>`
-    : '';
-};
+  const discountBadge = (sale, discount) => {
+    return sale
+      ? `<span class="new badge red" data-badge-caption="off!">${discount}%</span>`
+      : '';
+  };
 
-const renderStorefront = (item, id) => {
-  const items = document.querySelector('#items');
-  items.innerHTML += `
+  const renderStorefront = (item, id) => {
+    $('#items').append(`
     <div class="col s12 m6" id="item-card" data-id="${id}">
       <div class="card medium grey lighten-4">
         <div class="card-image">
@@ -43,28 +43,28 @@ const renderStorefront = (item, id) => {
         </div>    
       </div>
     </div>
-`;
-};
+`);
+  };
 
-db.collection('items').get()
-  .then((snapshot) => {
-    snapshot.docs.forEach((doc) => {
-      renderStorefront(doc.data(), doc.id);
+  db.collection('items').get()
+    .then((snapshot) => {
+      snapshot.docs.forEach((doc) => {
+        renderStorefront(doc.data(), doc.id);
+      });
     });
-  });
 
-const renderCart = (e) => {
-  const cart = document.querySelector('#cart');
-  const itemID = e.target.dataset.id;
-  // Close card reveal
-  // document.querySelector(`.card-reveal:has(>a[data-id="${itemID}"])`).click();
-  // document.querySelector(`a[data-id="${itemID}"]`).classList.add('green-text');
-  if (itemID) {
-    const itemRef = db.collection('items').doc(itemID);
+  const renderCart = (e) => {
+    const itemID = e.target.dataset.id;
+    if (itemID) {
+      const itemRef = db.collection('items').doc(itemID);
+      // Close card reveal
+      setTimeout(() => {
+        $(`a[data-id="${itemID}"]`).parent().children(':first-child').click();
+      }, 1000);
 
-    itemRef.get().then((doc) => {
-      const item = doc.data();
-      cart.innerHTML += `
+      itemRef.get().then((doc) => {
+        const item = doc.data();
+        $('#cart').append(`
         <div class="card horizontal">
           <div class="card-image">
             ${discountBadge(item.sale, item.discount)}
@@ -78,9 +78,10 @@ const renderCart = (e) => {
             </div>
           </div>
         </div>
-      `;
-    });
-  }
-};
+      `);
+      });
+    }
+  };
 
-document.addEventListener('click', renderCart);
+  $(document).click(renderCart);
+});
