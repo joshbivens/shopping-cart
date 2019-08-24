@@ -33,12 +33,20 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 
 ### 08/22 > 08/23
 - get small versions of imgs &#10003;
+- when "add to cart" is clicked &#10003;
+	- Close card overlay
+	- Add "added to cart" timed modal
+
+### 08/24
+- convert to jquery &#10003;
+- add quantity badge
 - add ability to remove items from cart
-- when "add to cart" is clicked
-    - Close card overlay
-    - Add "added to cart" timed modal &#10003;
+	- show 'empty' when no items
+- update total when items are added to cart
+
+## Notes
+Make a 'cart' doc in Firestore and use *that* to populate the cart.
 
 ## Future
-- get badge to display properly on cart image
-    - this maybe: https://stackoverflow.com/questions/39726401/having-problems-implementing-horizontal-cards-from-materialize-css-library
-- rethink js organization
+- get badge to display properly on cart image &#10003;
+- rethink js organization/refactor
