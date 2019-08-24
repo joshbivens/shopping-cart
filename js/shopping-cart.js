@@ -15,10 +15,10 @@ const renderStorefront = (item, id) => {
   const items = document.querySelector('#items');
   items.innerHTML += `
     <div class="col s12 m6" id="item-card" data-id="${id}">
-      <div class="card medium">
+      <div class="card medium grey lighten-4">
         <div class="card-image">
           ${discountBadge(item.sale, item.discount)}
-          <img class="activator" src="${item.img_url}">
+          <img class="activator" src="${item.img_url}" alt="${item.name}">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4">
@@ -57,28 +57,27 @@ const renderCart = (e) => {
   const cart = document.querySelector('#cart');
   const itemID = e.target.dataset.id;
   // Close card reveal
-  document.querySelector(`div[data-id="${itemID}"] .card-reveal .card-title`).click();
+  // document.querySelector(`.card-reveal:has(>a[data-id="${itemID}"])`).click();
+  // document.querySelector(`a[data-id="${itemID}"]`).classList.add('green-text');
   if (itemID) {
     const itemRef = db.collection('items').doc(itemID);
 
     itemRef.get().then((doc) => {
       const item = doc.data();
       cart.innerHTML += `
-        <div class="cart-contents">
-          <div class="card horizontal">
-            <div class="card-image">
-              ${discountBadge(item.sale, item.discount)}
-              <img src="${item.img_url_sm}" alt="${item.name}">
-            </div>
-            <div class="card-stacked">
-              <div class="card-content>
-                <h6><b>${item.name}</b></h6>
-                <p>${reducePrice(item.sale, item.discount, item.price)}</p>
-                <!-- Delete icon -->
-              </div>
+        <div class="card horizontal">
+          <div class="card-image">
+            ${discountBadge(item.sale, item.discount)}
+            <img src="${item.img_url_sm}" alt="${item.name}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content grey lighten-4">
+              <h6><b>${item.name}</b></h6>
+              <p>${reducePrice(item.sale, item.discount, item.price)}
+              </p>
             </div>
           </div>
-        </div>      
+        </div>
       `;
     });
   }
