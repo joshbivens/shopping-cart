@@ -40,3 +40,4 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 
 ## Future
 - get badge to display properly on cart image
+- rethink js organization
