@@ -70,7 +70,7 @@
         <h4>In your cart</h4>
         <div id="cart"></div>
         <!-- Dynamic card area -->
-        <span>Total: $0.00</span>
+        <span id="total">Total: $0.00</span>
         <a href="#" class="checkout btn right light-blue">
           Checkout
           <i class="material-icons right">arrow_forward</i>
@@ -110,7 +110,9 @@
   </script>
   <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script src="/js/utils.js"></script>
   <script src="/js/shopping-cart.js"></script>
+  <script src="/js/storefront.js"></script>
   <script>
     $(document).ready(() => {
       $('.modal').modal();
@@ -118,7 +120,7 @@
         onOpenStart() {
           setTimeout(() => {
             $('#added-modal').modal('close');
-          }, 1500);
+          }, 1000);
         },
       });
     });
