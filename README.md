@@ -37,15 +37,15 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 	- Close card overlay
 	- Add "added to cart" timed modal
 
-### 08/24
+### 08/24 > 08/25
 - convert to jquery &#10003;
-- add quantity badge
-- add ability to remove items from cart
-	- show 'empty' when no items
-- update total when items are added to cart
+- make a 'cart' doc in Firestore and use *that* to populate the cart.
+  - add quantity badge
+  - add ability to remove items from cart
+    - show 'empty' when no items
+  - update total when items are added to cart
 
 ## Notes
-Make a 'cart' doc in Firestore and use *that* to populate the cart.
 
 ## Future
 - get badge to display properly on cart image &#10003;
