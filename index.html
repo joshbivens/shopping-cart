@@ -1,129 +1,137 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.4.0/firebase-firestore.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <style>
-    .sidenav {
-      padding-top: 30px;
-    }
+    <style>
+      .sidenav {
+        padding-top: 30px;
+      }
 
-    #cart-modal h4 {
-      padding-bottom: 10px;
-    }
+      #cart-modal h4 {
+        padding-bottom: 10px;
+      }
 
-    .checkout {
-      margin: 10px 0 20px 0;
-    }
+      .checkout {
+        margin: 10px 0 20px 0;
+      }
 
-    .card-reveal {
-      position: relative;
-    }
+      .card-reveal {
+        position: relative;
+      }
 
-    img {
-      position: relative;
-    }
+      img {
+        position: relative;
+      }
 
-    .badge {
-      z-index: 1;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+      .badge {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
 
-    #add-to-cart {
-      position: absolute;
-      bottom: 30px;
-      right: 30px;
-    }
+      #add-to-cart {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+      }
 
-    #added-modal {
-      width: 45%;
-      border-radius: 5px;
-    }
-  </style>
+      #added-modal {
+        width: 45%;
+        border-radius: 5px;
+      }
+    </style>
 
-  <title>Shopping Cart</title>
-</head>
-<body>
-  <!-- Nav/Header -->
-  <div id="app">
-    <nav>
-      <div class="nav-wrapper light-blue">
-        <div class="container">
-          <a href="#" class="right modal-trigger" data-target="cart-modal">
-            <i class="material-icons">add_shopping_cart</i>
+    <title>Shopping Cart</title>
+  </head>
+  <body>
+    <!-- Nav/Header -->
+    <div id="app">
+      <nav>
+        <div class="nav-wrapper light-blue">
+          <div class="container">
+            <a href="#" class="right modal-trigger" data-target="cart-modal">
+              <i class="material-icons">add_shopping_cart</i>
+            </a>
+            <a href="#" class="brand-logo">Shop</a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Cart -->
+      <div id="cart-modal" class="modal">
+        <div class="modal-content">
+          <h4>In your cart</h4>
+          <div id="cart"></div>
+          <!-- Dynamic card area -->
+          <span id="total">Total: $0.00</span>
+          <a href="#" class="checkout btn right light-blue">
+            Checkout
+            <i class="material-icons right">arrow_forward</i>
           </a>
-          <a href="#" class="brand-logo">Shop</a>
         </div>
       </div>
-    </nav>
 
-    <!-- Cart -->
-    <div id="cart-modal" class="modal">
-      <div class="modal-content">
-        <h4>In your cart</h4>
-        <div id="cart"></div>
-        <!-- Dynamic card area -->
-        <span id="total">Total: $0.00</span>
-        <a href="#" class="checkout btn right light-blue">
-          Checkout
-          <i class="material-icons right">arrow_forward</i>
-        </a>
+      <!-- Added to cart confirm. -->
+      <div id="added-modal" class="modal">
+        <div class="modal-content">
+          <p class="center">Added to cart</p>
+        </div>
+      </div>
+
+      <!-- Storefront -->
+      <div class="container">
+        <h3>Today's Deals</h3>
+        <div id="items" class="row">
+          <!-- Dynamic card area -->
+        </div>
       </div>
     </div>
 
-    <!-- Added to cart confirm. -->
-    <div id="added-modal" class="modal">
-      <div class="modal-content">
-        <p class="center">Added to cart</p>
-      </div>
-    </div>
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyBXppPRi8Wg5FT3lTFpfsjCVOXL5qvV5uQ",
+        authDomain: "shopping-cart-8b348.firebaseapp.com",
+        databaseURL: "https://shopping-cart-8b348.firebaseio.com",
+        projectId: "shopping-cart-8b348",
+        storageBucket: "shopping-cart-8b348.appspot.com",
+        messagingSenderId: "19777728730",
+        appId: "1:19777728730:web:5753afbee26111e1"
+      };
 
-    <!-- Storefront -->
-    <div class="container">
-      <h3>Today's Deals</h3>
-      <div id="items" class="row">
-        <!-- Dynamic card area -->
-      </div>
-    </div>
-  </div>
-
-  <script>
-    var firebaseConfig = {
-      apiKey: "AIzaSyBXppPRi8Wg5FT3lTFpfsjCVOXL5qvV5uQ",
-      authDomain: "shopping-cart-8b348.firebaseapp.com",
-      databaseURL: "https://shopping-cart-8b348.firebaseio.com",
-      projectId: "shopping-cart-8b348",
-      storageBucket: "shopping-cart-8b348.appspot.com",
-      messagingSenderId: "19777728730",
-      appId: "1:19777728730:web:5753afbee26111e1"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-  </script>
-  <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
-  <script src="/js/utils.js"></script>
-  <script src="/js/shopping-cart.js"></script>
-  <script src="/js/storefront.js"></script>
-  <script>
-    $(document).ready(() => {
-      $('.modal').modal();
-      $('#added-modal').modal({
-        onOpenStart() {
-          setTimeout(() => {
-            $('#added-modal').modal('close');
-          }, 1000);
-        },
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/shopping-cart.js"></script>
+    <script src="/js/storefront.js"></script>
+    <script>
+      $(document).ready(() => {
+        $(".modal").modal();
+        $("#added-modal").modal({
+          onOpenStart() {
+            setTimeout(() => {
+              $("#added-modal").modal("close");
+            }, 1000);
+          }
+        });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

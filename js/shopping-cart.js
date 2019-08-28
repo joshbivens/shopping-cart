@@ -1,11 +1,20 @@
 $(document).ready(() => {
+  // ? Onclick of "add to cart" a copy of the item is pushed to
+  // ? an array and the cart will be built from that
+  // ? OR-
+  // ? Request whole storefront and filter it to include only
+  // ? what was placed in cart
+
   const renderCart = (e) => {
     const itemID = e.target.dataset.id;
     if (itemID) {
       const itemRef = db.collection('items').doc(itemID);
-      // Close card reveal
+      // TODO - CLOSE CARD REVEAL
       setTimeout(() => {
-        $(`a[data-id="${itemID}"]`).parent().children(':first-child').click();
+        $(`a[data-id="${itemID}"]`)
+          .parent()
+          .children(':first-child')
+          .click();
       }, 1000);
 
       itemRef.get().then((doc) => {

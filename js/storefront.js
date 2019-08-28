@@ -33,9 +33,10 @@ $(document).ready(() => {
 `);
   };
 
-  db.collection('items').get()
-    .then((snapshot) => {
-      snapshot.docs.forEach((doc) => {
+  db.collection('items')
+    .get()
+    .then(snapshot => {
+      snapshot.docs.forEach(doc => {
         renderStorefront(doc.data(), doc.id);
       });
     });
