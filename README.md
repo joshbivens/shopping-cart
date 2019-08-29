@@ -38,7 +38,7 @@ Using JavaScript, Materialize, and Firestore to create a shopping cart
 	- Add "added to cart" timed modal
 
 ### 08/24 > 08/25
-- convert to jquery &#10003;
+- convert to jQuery &#10003;
 - make a 'cart' doc in Firestore and use *that* to populate the cart.
   - add quantity badge
   - add ability to remove items from cart
